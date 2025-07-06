@@ -59,6 +59,8 @@ in
   home.file = {
     ".p10k.zsh".text = builtins.readFile ./p10k.zsh;
     ".vimrc".text = builtins.readFile ./vimrc;
+    ".zshrc_extras".source = ./zshrc-extras;
+
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -106,10 +108,14 @@ in
 
       oh-my-zsh = {
         enable = true; 
-        extraConfig = builtins.readFile "./zshrc-extras";
-
         plugins = [];
       };
+
+      programs.zsh.initExtra = ''
+        if [ -f "$HOME/.zshrc_extras" ]; then
+          source "$HOME/.zshrc_extras"
+        fi
+      '';
     };
     git = {
       enable = true;
