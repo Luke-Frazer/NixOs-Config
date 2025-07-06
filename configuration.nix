@@ -106,6 +106,7 @@
     vim
     discord
     pkgs._1password-gui
+    parted
   ];
 
   # Shell Settings
