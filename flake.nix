@@ -19,11 +19,11 @@
           inherit system;
           modules = [ 
             ./configuration.nix 
-            ({ config, pkgs, ...}: {
+            ({ config, pkgs, home-manager, ...}: {
               # install the overlay
              nixpkgs.overlays = [ alacritty-theme.overlays.default ];
             })
-            ({ config, pkgs, ... }: {
+            ({ config, pkgs, home-manager, ... }: {
               home-manager.users.lukef = hm: {
                 programs.alacritty = {
                   enable = true;
