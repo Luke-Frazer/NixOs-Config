@@ -106,14 +106,13 @@ in
 
       oh-my-zsh = {
         enable = true;
-        theme = "robbyrussell";
 
         plugins = [];
       };
 
       programs.zsh.initExtraFirst = ''
-        if [[ -r ~/.cache/p10k-instant-prompt-${(%):-%n}.zsh ]]; then
-          source ~/.cache/p10k-instant-prompt-${(%):-%n}.zsh
+        if [[ -r ~/.cache/p10k-instant-prompt-\${(%):-%n}.zsh ]]; then
+          source ~/.cache/p10k-instant-prompt-\${(%):-%n}.zsh
         fi
       '';
     };
