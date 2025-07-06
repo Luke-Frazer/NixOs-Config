@@ -110,11 +110,7 @@ in
         plugins = [];
       };
 
-      initExtraFirst = ''
-        if [[ -r "${XDG_CACHE_HOME:-/home/lukef/.cache}/p10k-instant-prompt-$${(%):-%n}.zsh" ]]; then
-          source "${XDG_CACHE_HOME:-/home/lukef/.cache}/p10k-instant-prompt-$${(%):-%n}.zsh"
-        fi
-      '';
+      initExtra = builtins.readFile ./zshrc-extras;
     };
     git = {
       enable = true;
