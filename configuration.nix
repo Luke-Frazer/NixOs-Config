@@ -112,6 +112,7 @@
     discord
     pkgs._1password-gui
     parted
+    xclip
   ];
 
   # Shell Settings
