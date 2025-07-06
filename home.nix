@@ -111,7 +111,7 @@ in
         plugins = [];
       };
 
-      programs.zsh.initExtra = ''
+      initExtra = ''
         if [ -f "$HOME/.zshrc_extras" ]; then
           source "$HOME/.zshrc_extras"
         fi
