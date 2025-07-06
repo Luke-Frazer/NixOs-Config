@@ -114,7 +114,7 @@ in
         plugins = [];
       };
 
-      initExtra = ''
+      initContent = ''
         if [ -f "$HOME/.zshrc_extras" ]; then
           source "$HOME/.zshrc_extras"
         fi
