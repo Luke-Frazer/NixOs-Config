@@ -105,12 +105,11 @@ in
       syntaxHighlighting.enable = true;
 
       oh-my-zsh = {
-        enable = true;
+        enable = true; 
+        extraConfig = builtins.readFile ./zshrc-extras;
 
         plugins = [];
       };
-
-      initExtra = builtins.readFile ./zshrc-extras;
     };
     git = {
       enable = true;
