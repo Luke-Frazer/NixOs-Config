@@ -106,7 +106,7 @@ in
 
       oh-my-zsh = {
         enable = true; 
-        extraConfig = builtins.readFile "$HOME/.dotfiles/zshrc-extras";
+        extraConfig = builtins.readFile ".dotfiles/zshrc-extras";
 
         plugins = [];
       };
