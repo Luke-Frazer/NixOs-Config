@@ -15,7 +15,7 @@ let
     "open-flake" = "vim /home/lukef/.dotfiles/flake.nix";
     "all-git-update" = "cd /home/lukef/.dotfiles/ && git add * && git commit -m 'Updating *all config files' && git push origin HEAD";
     "home-git-root-update" = "cd /home/lukef/.dotfiles/ && git add root-dotfiles && git commit -m 'Updating root dotfiles' && git push origin HEAD && cd -";
-    "root-update" = "home-git-root-update && sudo home-manager switch --flake /home/lukef/.dotfiles#root"
+    "root-update" = "home-git-root-update && sudo home-manager switch --flake /home/lukef/.dotfiles#root";
 
   };
 in
