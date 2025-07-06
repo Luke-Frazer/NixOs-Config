@@ -24,6 +24,10 @@
           inherit pkgs; 
           modules = [ ./home.nix ];
         };
+        root = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./root-dotfiles/home.nix ];
+        };
       };
     };
 }
