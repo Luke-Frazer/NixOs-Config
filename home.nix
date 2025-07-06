@@ -4,14 +4,16 @@ let
   myAliases = {
     # ll = "ls -l";
     ".." = "cd ..";
-    "nix-update" = "nix-sync && sudo nixos-rebuild switch --flake /home/lukef/.dotfiles/";
-    "nix-update-test" = "nix-sync && sudo nixos-rebuild test --flake /home/lukef/.dotfiles/";
-    "nix-update-boot" = "nix-sync && sudo nixos-rebuild boot --flake /home/lukef/.dotfiles/";
-    "home-update" = "home-manager switch --flake /home/lukef/.dotfiles/";
-    "nix-sync" = "sudo cp /home/lukef/.dotfiles/configuration.nix /etc/nixos/";
+    "nix-git-update" = "cd /home/lukef/.dotfiles/ && git add configuration.nix && git commit -m 'Updating configuration.nix' && git push origin HEAD";
+    "nix-update" = "nix-git-update && sudo nixos-rebuild switch --flake /home/lukef/.dotfiles/";
+    "nix-update-test" = "nix-git-update && sudo nixos-rebuild test --flake /home/lukef/.dotfiles/";
+    "nix-update-boot" = "nix-git-update && sudo nixos-rebuild boot --flake /home/lukef/.dotfiles/";
+    "home-git-update" = "cd /home/lukef/.dotfiles/ && git add home.nix && git commit -m 'Updating home.nix' && git push origin HEAD";
+    "home-update" = "home-git-update && home-manager switch --flake /home/lukef/.dotfiles/";
     "open-nix" = "sudo vim /home/lukef/.dotfiles/configuration.nix";
     "open-home" = "vim /home/lukef/.dotfiles/home.nix";
     "open-flake" = "vim /home/lukef/.dotfiles/flake.nix";
+    "all-git-update" = "cd /home/lukef/.dotfiles/ && git add * && git commit -m 'Updating *all config files' && git push origin HEAD";
   };
 in
 
