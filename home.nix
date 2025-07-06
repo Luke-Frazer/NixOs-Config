@@ -131,11 +131,15 @@ in
     };
     alacritty = {
       enable = true;
-      config = {
+
+      settings = {
+        font = {
+          size = 12;
+        };
+
         import = [
           "${pkgs.alacritty-theme.gruvbox_material}/share/alacritty-theme/gruvbox_material.yml"
         ];
-        font.size = 12;  # example extra config
       };
     };
   };
