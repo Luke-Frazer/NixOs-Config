@@ -115,7 +115,6 @@ in
           source "${XDG_CACHE_HOME:-/home/lukef/.cache}/p10k-instant-prompt-$${(%):-%n}.zsh"
         fi
       '';
-
     };
     git = {
       enable = true;
