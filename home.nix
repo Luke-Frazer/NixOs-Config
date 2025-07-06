@@ -130,7 +130,7 @@ in
     };
     alacritty = {
       enable = true;
-      theme = "gruvbox_material";
+      theme = gruvbox_material;
     };
   };
 
