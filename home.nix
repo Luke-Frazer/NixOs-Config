@@ -110,7 +110,7 @@ in
         plugins = [];
       };
 
-      initExtra = builtins.readFile ~/.dotfiles/zshrc-extras;
+      initExtra = builtins.readFile ./zshrc-extras;
     };
     git = {
       enable = true;
