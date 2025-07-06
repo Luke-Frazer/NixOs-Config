@@ -4,7 +4,6 @@ let
   myAliases = {
     # ll = "ls -l";
     ".." = "cd ..";
-    "home-update" = "home-manager switch --flake /root/.dotfiles/";
   };
 in
 
