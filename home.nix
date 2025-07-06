@@ -4,7 +4,7 @@ let
   myAliases = {
     # ll = "ls -l";
     ".." = "cd ..";
-    "nix-git-update" = "cd /home/lukef/.dotfiles/ && git add configuration.nix && git commit -m 'Updating configuration.nix' && git push origin HEAD";
+    "nix-git-update" = "cd /home/lukef/.dotfiles/ && git add configuration.nix && git commit -m 'Updating configuration.nix' && git push origin HEAD && cd -";
     "nix-update" = "nix-git-update && sudo nixos-rebuild switch --flake /home/lukef/.dotfiles/";
     "nix-update-test" = "nix-git-update && sudo nixos-rebuild test --flake /home/lukef/.dotfiles/";
     "nix-update-boot" = "nix-git-update && sudo nixos-rebuild boot --flake /home/lukef/.dotfiles/";
