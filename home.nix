@@ -8,7 +8,7 @@ let
     "nix-update" = "nix-git-update && sudo nixos-rebuild switch --flake /home/lukef/.dotfiles/";
     "nix-update-test" = "nix-git-update && sudo nixos-rebuild test --flake /home/lukef/.dotfiles/";
     "nix-update-boot" = "nix-git-update && sudo nixos-rebuild boot --flake /home/lukef/.dotfiles/";
-    "home-git-update" = "cd /home/lukef/.dotfiles/ && git add home.nix && git commit -m 'Updating home.nix' && git push origin HEAD";
+    "home-git-update" = "cd /home/lukef/.dotfiles/ && git add home.nix && git commit -m 'Updating home.nix' && git push origin HEAD && cd -";
     "home-update" = "home-git-update && home-manager switch --flake /home/lukef/.dotfiles/";
     "open-nix" = "sudo vim /home/lukef/.dotfiles/configuration.nix";
     "open-home" = "vim /home/lukef/.dotfiles/home.nix";
