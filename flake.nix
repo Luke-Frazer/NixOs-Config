@@ -5,9 +5,10 @@
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-25.05";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = {self, nixpkgs, home-manager, ... }:
+  outputs = {self, nixpkgs, home-manager, alacritty-theme, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -16,7 +17,22 @@
       nixosConfigurations = {
         Evie = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
+          modules = [ 
+            ./configuration.nix 
+            ({ config, pkgs, ...}: {
+              # install the overlay
+             nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+            })
+            ({ config, pkgs, ... }: {
+              home-manager.users.lukef = hm: {
+                programs.alacritty = {
+                  enable = true;
+                  # use a color scheme from the overlay
+                  settings.general.import = [ pkgs.alacritty-theme.gruvbox_material ];
+                };
+              };
+            })
+          ];
         };
       };
       homeConfigurations = {
