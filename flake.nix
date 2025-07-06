@@ -11,6 +11,7 @@
   outputs = {self, nixpkgs, home-manager, alacritty-theme, ... }:
     let
       lib = nixpkgs.lib;
+      home-lib = home-manager.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -18,17 +19,17 @@
       };
     in {
       nixosConfigurations = {
-        Evie = nixpkgs.lib.nixosSystem {
+        Evie = lib.nixosSystem {
           inherit system;
           modules = [ ./configuration.nix ];
         };
       };
       homeConfigurations = {
-        lukef = home-manager.lib.homeManagerConfiguration {
+        lukef = home-lib.homeManagerConfiguration {
           inherit pkgs; 
           modules = [ ./home.nix ];
         };
-        root = home-manager.lib.homeManagerConfiguration {
+        root = home-lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./root-dotfiles/home.nix ];
         };

@@ -136,9 +136,7 @@ in
           size = 12;
         };
 
-        import = [
-          "${pkgs.alacritty-theme.gruvbox_material}/share/alacritty-theme/gruvbox_material.yml"
-        ];
+        general.import = [ pkgs.alacritty-theme.gruvbox_material ];
       };
     };
   };
