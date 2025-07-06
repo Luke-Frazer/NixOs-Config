@@ -56,6 +56,11 @@
     variant = "";
   };
 
+  fileSystems."/mnt/media" = {
+    device = "/dev/disk/by-uuid/290f587a-b3f3-4b54-9293-90eede92edb3";
+    fsType = "ext4";
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
