@@ -12,27 +12,15 @@
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ alacritty-theme.overlays.default ];
+      };
     in {
       nixosConfigurations = {
-        Evie = lib.nixosSystem {
+        Evie = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ 
-            ./configuration.nix 
-            ({ config, pkgs, home-manager, ...}: {
-              # install the overlay
-             nixpkgs.overlays = [ alacritty-theme.overlays.default ];
-            })
-            ({ config, pkgs, home-manager, ... }: {
-              home-manager.users.lukef = hm: {
-                programs.alacritty = {
-                  enable = true;
-                  # use a color scheme from the overlay
-                  settings.general.import = [ pkgs.alacritty-theme.gruvbox_material ];
-                };
-              };
-            })
-          ];
+          modules = [ ./configuration.nix ];
         };
       };
       homeConfigurations = {
