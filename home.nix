@@ -128,7 +128,7 @@ in
         init.defaultBranch = "main";
       };
     };
-    allacritty = {
+    alacritty = {
       enable = true;
        config = {
          import = [
