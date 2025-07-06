@@ -131,9 +131,6 @@ in
     alacritty = {
       enable = true;
       theme = "gruvbox_material";
-      settings = {
-        font.size = 12;
-      };
     };
   };
 
