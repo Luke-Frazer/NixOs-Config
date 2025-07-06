@@ -9,11 +9,14 @@ let
     "nix-update-test" = "nix-git-update && sudo nixos-rebuild test --flake /home/lukef/.dotfiles/";
     "nix-update-boot" = "nix-git-update && sudo nixos-rebuild boot --flake /home/lukef/.dotfiles/";
     "home-git-update" = "cd /home/lukef/.dotfiles/ && git add home.nix && git commit -m 'Updating home.nix' && git push origin HEAD && cd -";
-    "home-update" = "home-git-update && home-manager switch --flake /home/lukef/.dotfiles/";
+    "home-update" = "home-git-update && home-manager switch --flake /home/lukef/.dotfiles#lukef";
     "open-nix" = "sudo vim /home/lukef/.dotfiles/configuration.nix";
     "open-home" = "vim /home/lukef/.dotfiles/home.nix";
     "open-flake" = "vim /home/lukef/.dotfiles/flake.nix";
     "all-git-update" = "cd /home/lukef/.dotfiles/ && git add * && git commit -m 'Updating *all config files' && git push origin HEAD";
+    "home-git-root-update" = "cd /home/lukef/.dotfiles/ && git add root-dotfiles && git commit -m 'Updating root dotfiles' && git push origin HEAD && cd -";
+    "root-update" = "home-git-root-update && sudo home-manager switch --flake /home/lukef/.dotfiles#root"
+
   };
 in
 
