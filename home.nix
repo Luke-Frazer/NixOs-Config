@@ -16,7 +16,6 @@ let
     "all-git-update" = "cd /home/lukef/.dotfiles/ && git add * && git commit -m 'Updating *all config files' && git push origin HEAD";
     "home-git-root-update" = "cd /home/lukef/.dotfiles/ && git add root-dotfiles && git commit -m 'Updating root dotfiles' && git push origin HEAD && cd -";
     "root-update" = "home-git-root-update && sudo home-manager switch --flake /home/lukef/.dotfiles#root";
-
   };
 in
 
@@ -128,6 +127,16 @@ in
         user.email = "luke.e.frazer@gmail.com";
         init.defaultBranch = "main";
       };
+    };
+    allacritty = {
+      enable = true;
+       config = {
+         import = [
+           "${pkgs.alacritty-theme.gruvbox_material}/share/alacritty-theme/gruvbox_material.yml"
+         ];
+         font.size = 12;
+       };
+
     };
   };
 
