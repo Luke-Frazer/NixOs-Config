@@ -1,0 +1,4 @@
+# enable instant prompt for p10k
+if [[ -r "${XDG_CACHE_HOME:-/home/lukef/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-/home/lukef/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
