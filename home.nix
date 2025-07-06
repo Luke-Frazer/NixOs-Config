@@ -110,12 +110,11 @@ in
         plugins = [];
       };
 
-      programs.zsh.initExtraFirst = builtins.toString ''
-        if [[ -r ~/.cache/p10k-instant-prompt-\${(%):-%n}.zsh ]]; then
-          source ~/.cache/p10k-instant-prompt-\${(%):-%n}.zsh
+      initExtra = ''
+        if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+          source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
         fi
       '';
-      
     };
     git = {
       enable = true;
