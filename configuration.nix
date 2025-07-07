@@ -83,7 +83,7 @@
   # power management
   services.undervolt = {
     enable = true;
-    coreOffset = -30;
+    coreOffset = -125;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
