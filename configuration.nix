@@ -80,6 +80,12 @@
     #media-session.enable = true;
   };
 
+  # power management
+  services.undervolt = {
+    enable = true;
+    coreOffset = -30;
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
