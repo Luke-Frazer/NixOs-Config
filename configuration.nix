@@ -118,7 +118,10 @@
     pkgs._1password-gui
     parted
     xclip
+    nordvpn
   ];
+
+  services.nordvpn.enable = true
 
   # Shell Settings
   environment.shells = with pkgs; [ bash zsh ];
