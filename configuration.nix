@@ -121,7 +121,7 @@
     nordvpn
   ];
 
-  services.nordvpn.enable = true
+  services.nordvpn.enable = true;
 
   # Shell Settings
   environment.shells = with pkgs; [ bash zsh ];
